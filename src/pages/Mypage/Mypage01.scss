@@ -1,0 +1,131 @@
+body {
+    margin: 0;
+    background: #62e59b; // 헤더랑 똑같이
+}
+
+.mypage {
+    background: #62e59b;
+
+    .mypage-header {
+        background: #62e59b;
+        text-align: center;
+        padding: 24px 0 60px; // 위쪽 여백 줄이기
+    }
+}
+
+.mypage-wrap {
+    background-color: #62E59B;
+    position: relative;
+    min-height: 100vh;
+}
+
+.mypage-hero {
+    text-align: center;
+    padding: 35px 20px 60px;
+
+    .greeting {
+        font-size: 20px;
+        font-weight: 500;
+        color: #FFFFFF;
+
+        .nick {
+            font-weight: 600;
+            color: #111;
+            font-size: 25px;
+        }
+
+        .brand-logo {
+            height: 45px;
+            margin-left: 6px;
+            vertical-align: middle;
+        }
+    }
+}
+
+.backgroud_design {
+    position: absolute;
+    top: 245px;
+    width: 100%;
+    min-height: calc(100vh - 200px); // 화면 아래까지 흰색이 내려옴
+    background: #fff;
+    border-radius: 50px 50px 0 0; // 위쪽만 둥글게
+    z-index: 0; // 뒤로 보내기
+}
+
+.mypage-content {
+    padding: 10px 20px;
+    margin-top: -130px;
+
+    // 큰 흰색 배경 박스
+    .cards-wrapper {
+        background: #fff;
+        border-radius: 20px;
+        padding: 30px 20px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        margin-bottom: 24px;
+        z-index: 1;
+    }
+
+    .mypage-cards {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        .card {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #E9FFE7;
+            border-radius: 10px;
+            padding: 14px 20px;
+            font-size: 16px;
+            font-weight: 600;
+
+            .value {
+                font-size: 18px;
+                font-weight: 700;
+                color: #0f9d58;
+            }
+
+            .unit {
+                font-size: 16px;
+                font-weight: 600;
+                color: #111;
+            }
+        }
+    }
+
+    // 버튼은 바깥
+    .actions-box {
+        text-align: center;
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 16px;
+
+            &.secondary {
+                width: 370px;
+                height: 65px;
+                background: #F4F4F4;
+                border: 1px solid #F4F4F4;
+            }
+
+            &.text.danger {
+                background: none;
+                color: #0f9d58;
+                font-weight: 600;
+                font-size: 18px;
+                border: 1px solid #fff;
+            }
+        }
+    }
+}
+
+.bottom-space {
+    height: 40px;
+}
