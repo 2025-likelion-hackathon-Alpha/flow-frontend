@@ -1,0 +1,229 @@
+/* 전체 레이아웃 컨테이너 */
+.rewardshop-container {
+    display: flex;
+    flex-direction: column;
+    height: 873px;
+    max-width: 402px;
+    margin: 0 auto;
+    background: #fff;
+    position: relative;
+}
+
+/* 상품 리스트만 스크롤 */
+.scroll-area {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.rewardshop {
+    font-weight: 700;
+    font-size: 18px;
+    text-align: center;
+    color: #313131;
+    margin-top: 30px;
+}
+
+.title {
+    margin-top: 30px;
+    margin-left: 15px;
+
+    h1 {
+        font-weight: 600;
+        font-size: 20px;
+        color: #313131;
+    }
+
+    p {
+        font-weight: 600;
+        font-size: 16px;
+        color: #313131;
+        margin-top: 3px;
+    }
+}
+
+/* 검색창 */
+.search-box {
+    margin: 20px 15px;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    input {
+        flex: 1;
+        height: 50px;
+        padding: 0 40px 0 20px;
+        border: 1px solid #009331;
+        border-radius: 10px;
+        font-size: 14px;
+        outline: none;
+
+        &::placeholder {
+            color: #8F8F8F80;
+        }
+    }
+
+    .search-icon {
+        position: absolute;
+        right: 15px;
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+    }
+}
+
+/* 상품 리스트 */
+.product-list {
+    margin: 0 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.product-card {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+
+    .thumb {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 12px;
+    }
+
+    .info {
+        flex: 1;
+
+        h4 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: #313131;
+        }
+
+        p {
+            font-size: 12px;
+            color: #8F8F8F;
+            font-weight: 400;
+        }
+    }
+
+    .points {
+        display: flex;
+        align-items: baseline;
+        gap: 4px;
+    }
+
+    .point-number {
+        font-size: 22px;
+        font-weight: 600;
+        color: #62E59B;
+    }
+
+    .point-text {
+        font-size: 13px;
+        font-weight: 500;
+        color: #8F8F8F;
+    }
+
+    &.selected {
+        background-color: #E9FFE7;
+        border-radius: 10px;
+
+        .point-number {
+            color: #009331;
+        }
+
+        .point-text {
+            color: #313131;
+        }
+    }
+
+}
+
+/* 하단 버튼 */
+.footer-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+
+    .coupon-btn {
+        background-color: #62E59B;
+        color: #fff;
+        border: none;
+        width: 372px;
+        height: 60px;
+        border-radius: 10px;
+        font-weight: 500;
+        font-size: 20px;
+        cursor: pointer;
+    }
+}
+
+/* 모달 오버레이 */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+/* 모달 박스 */
+.modal {
+    background: #fff;
+    padding: 40px 20px 20px 20px;
+    border-radius: 12px;
+    width: 355px;
+    height: 352px;
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    h2 {
+        color: #009331;
+        font-size: 32px;
+        font-weight: 500;
+    }
+
+    p {
+        font-size: 16px;
+        color: #000000;
+        line-height: 25px;
+    }
+
+    .go-coupon {
+        background: #62E59B;
+        border: none;
+        border-radius: 10px;
+        color: #fff;
+        font-size: 20px;
+        font-weight: 500;
+        width: 315px;
+        height: 60px;
+        cursor: pointer;
+    }
+}
+
+/* 닫기 버튼 */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    border: none;
+    background: transparent;
+    font-size: 22px;
+    cursor: pointer;
+}

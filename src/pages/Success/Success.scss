@@ -1,0 +1,53 @@
+.Success_wrap {
+    position: relative;
+    width: 375px;   // 네가 작업한 모바일 가로 사이즈
+    height: 812px;  // 네가 작업한 모바일 세로 사이즈
+    margin: 0 auto;
+    background: #fff;
+    overflow: hidden;
+
+    .title {
+        margin-top: 50px;
+        text-align: center;
+
+        h1 {
+            font-weight: 700;
+            font-size: 23px;
+            color: #313131;
+            line-height: 35px;
+            margin-top: 130px;
+        }
+
+        p {
+            font-weight: 400;
+            font-size: 18px;
+            color: #8F8F8F;
+            margin-top: 15px;
+        }
+    }
+
+    .logo{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 90px;
+    }
+
+    .btn {
+        position: absolute;
+        bottom: 14px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 372px;
+        height: 61px;
+        background-color: #62E59B;
+        border-radius: 10px;
+        color: #fff;
+        font-weight: 500;
+        font-size: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+}
