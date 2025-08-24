@@ -20,7 +20,7 @@ const Success = () => {
                 <div className="logo">
                     <img src={Logo} alt="" />
                 </div>
-                <div className="btn" onClick={() => navigate('main')}>시작하기</div>
+                <div className="btn" onClick={() => navigate('/main')}>시작하기</div>
             </div>
         </>
     )
