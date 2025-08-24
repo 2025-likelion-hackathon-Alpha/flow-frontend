@@ -38,8 +38,8 @@ const Tutorial2 = () => {
           </div>
           <div className="ex3">
             <img src={Ex3} alt="" />
-            <p>플로의 다양한 혜택으로 포인트를 적립해<br />
-              지역 매장의 쿠폰으로 교환하세요!</p>
+            <p>플로의 다양한 포인트 적립 기준을 달성해 보세요.<br />
+              모은 포인트는 지역 매장의 쿠폰으로 교환돼요!</p>
           </div>
           <div className="btn" onClick={() => navigate('/tutorial3')}>다음</div>
         </div>
