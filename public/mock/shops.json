@@ -1,0 +1,37 @@
+{
+    "message": "성공적으로 지도 데이터를 불러왔습니다.",
+    "content": [
+        {
+            "placeId": 50387,
+            "name": "라엔뷰티",
+            "address": "서울특별시 성북구 동소문로20가길 14(동선동1가) ",
+            "category": "ECT",
+            "latitude": null,
+            "longitude": null
+        },
+        {
+            "placeId": 50386,
+            "name": "황금공인중개사사무소",
+            "address": "서울 성북구 동소문로23길 16, 1층 (동선동4가)",
+            "category": "ECT",
+            "latitude": null,
+            "longitude": null
+        },
+        {
+            "placeId": 50385,
+            "name": "더시크릿",
+            "address": "서울특별시 성북구 오패산로 46, 138호 (하월곡동, 월곡두산위브아파트 주상가동) 더시크릿",
+            "category": "ECT",
+            "latitude": null,
+            "longitude": null
+        },
+        {
+            "placeId": 50384,
+            "name": "헤어더뷰 성신여대점",
+            "address": "서울특별시 성북구 동소문로20나길 22 (동선동1가) 2층",
+            "category": "ECT",
+            "latitude": null,
+            "longitude": null
+        }
+    ]
+}

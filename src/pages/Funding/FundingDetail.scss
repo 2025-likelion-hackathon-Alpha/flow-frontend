@@ -1,0 +1,252 @@
+.funding-detail {
+    font-family: 'Pretendard', sans-serif;
+    color: #222;
+
+    .header-wrap {
+        display: flex;
+        align-items: center;
+        padding: 10px 16px;
+
+        .header-title {
+            flex: 1;
+            text-align: center;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .back-btn {
+            width: 10px;
+            height: 20px;
+            background: none;
+            border: none;
+        }
+    }
+
+    .funding-image {
+        margin-top: 21px;
+
+        img {
+            width: 372px;
+            height: 253px;
+            object-fit: cover;
+            border-radius: 8px;
+            display: block;
+            margin: 0 auto;
+        }
+    }
+
+    .funding-info {
+        padding: 16px;
+
+        h2 {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .organization {
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .funding-progress {
+            margin-top: 10px;
+
+            .progress-text {
+                display: flex;
+                gap: 6px;
+                font-size: 14px;
+                margin-bottom: 6px;
+
+                .current {
+                    font-weight: 600;
+                    color: #62e59b;
+                }
+
+                .percent {
+                    margin-left: auto;
+                    font-weight: 600;
+                }
+            }
+
+            .progress-bar {
+                width: 100%;
+                height: 8px;
+                background: #eee;
+                border-radius: 4px;
+                overflow: hidden;
+                margin-bottom: 6px;
+
+                .progress {
+                    height: 100%;
+                    background: #62e59b;
+                }
+            }
+
+            .extra-info {
+                display: flex;
+                justify-content: space-between;
+                font-size: 13px;
+                color: #888;
+            }
+        }
+    }
+
+    .funding-description {
+        padding: 16px;
+
+
+        h3 {
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        p {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.5;
+            border: 1px solid #62e59b;
+            border-radius: 6px;
+            padding: 10px;
+            width: 370px; // 고정 너비
+            height: 150px; // 고정 높이
+            overflow-y: auto; 
+            word-break: break-word; 
+        }
+    }
+
+    .funding-action {
+        padding: 20px 16px;
+
+        .funding-btn {
+            width: 100%;
+            padding: 14px;
+            background: #62e59b;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+    }
+
+    /* 모달 공통 */
+    .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 999;
+    }
+
+    .modal {
+        position: relative;
+        background: #fff;
+        border-radius: 16px;
+        padding: 24px;
+        width: 320px;
+        text-align: center;
+        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 12px;
+            background: none;
+            border: none;
+            cursor: pointer;
+
+            img {
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        .modal-title {
+            margin-top: 43px;
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .modal-seeds {
+            font-size: 28px;
+            font-weight: bold;
+            color: #00b050; // 초록색 강조
+            margin-bottom: 16px;
+        }
+
+        .modal-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            margin-bottom: 20px;
+            outline: none;
+
+            &::placeholder {
+                color: #bbb;
+            }
+        }
+
+        .modal-confirm-btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background: #00b050; // 초록 버튼
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+
+            &:hover {
+                background: #009140;
+            }
+        }
+    }
+
+    .modal.complete-modal {
+        position: relative;
+        background: #fff;
+        border-radius: 16px;
+        padding: 24px 20px;
+        width: 320px;
+        text-align: center;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+
+        h3 {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 16px 0 20px;
+        }
+
+        button {
+            padding: 12px;
+            width: 100%;
+            background: #62e59b;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .modal-bg {
+            display: flex;
+            justify-content: center;
+
+            img {
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+    }
+}

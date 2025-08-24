@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #fff;
+  display: grid;
+  place-items: center;
+  font-family: 'Pretendard Variable', 'Pretendard',
+    -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+#root {
+  width: 402px;
+  min-height: 874px;
+  background: #fff;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, .08);
+  overflow: hidden;
+}

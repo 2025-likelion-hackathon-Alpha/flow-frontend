@@ -1,0 +1,128 @@
+body {
+    margin: 0;
+    background: #62e59b;
+}
+
+.owner-wrap {
+    background-color: #62E59B;
+    position: relative;
+    min-height: 100vh;
+}
+
+.owner-hero {
+    text-align: center;
+    padding: 35px 20px 60px;
+
+    .greeting {
+        font-size: 20px;
+        font-weight: 500;
+        color: #FFFFFF;
+
+        .nick {
+            font-weight: 600;
+            color: #111;
+            font-size: 25px;
+        }
+
+        .brand-logo {
+            height: 45px;
+            margin-left: 6px;
+            vertical-align: middle;
+        }
+    }
+}
+
+.backgroud_design {
+    position: absolute;
+    top: 245px;
+    width: 100%;
+    min-height: calc(100vh - 200px);
+    background: #fff;
+    border-radius: 50px 50px 0 0;
+    z-index: 0;
+}
+
+.owner-content {
+    padding: 10px 20px;
+    margin-top: -130px;
+
+    .cards-wrapper {
+        background: #fff;
+        border-radius: 20px;
+        padding: 30px 20px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        margin-bottom: 24px;
+        z-index: 1;
+    }
+
+    .owner-cards {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        .card {
+            background: #e9ffe7;
+            border-radius: 12px;
+            padding: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+
+            .title {
+                font-size: 14px;
+                font-weight: 500;
+                color: #333;
+                text-align: left; // 왼쪽 정렬
+            }
+
+            .value {
+                font-size: 22px;
+                font-weight: 700;
+                color: #0c8a43;
+
+                &.right {
+                    text-align: right; // 금액 오른쪽 정렬
+                }
+
+                .unit {
+                    font-size: 14px;
+                    margin-left: 2px;
+                }
+            }
+        }
+
+    }
+
+    .actions-box {
+        text-align: center;
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 16px;
+
+            &.secondary {
+                width: 370px;
+                height: 65px;
+                background: #F4F4F4;
+                border: 1px solid #F4F4F4;
+            }
+
+            &.text.danger {
+                background: none;
+                color: #0f9d58;
+                font-weight: 600;
+                font-size: 18px;
+                border: 1px solid #fff;
+            }
+        }
+    }
+}
+
+.bottom-space {
+    height: 40px;
+}
