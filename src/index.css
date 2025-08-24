@@ -9,6 +9,8 @@ body {
   background: #fff;
   display: grid;
   place-items: center;
+  font-family: 'Pretendard Variable', 'Pretendard',
+    -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
 #root {

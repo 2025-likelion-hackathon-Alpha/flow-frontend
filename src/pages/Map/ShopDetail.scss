@@ -1,0 +1,308 @@
+.shop-detail-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: #fff;
+    padding-bottom: 80px; // 푸터 버튼 공간 확보
+
+    .shop-header {
+        display: flex;
+        align-items: center;
+        padding: 16px;
+        border-bottom: 1px solid #eee;
+
+        h2 {
+            flex: 1;
+            text-align: center;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .status {
+            font-size: 14px;
+            color: #1CE64D;
+            font-weight: 500;
+        }
+
+        .back-btn {
+            background: none;
+            border: none;
+        }
+    }
+
+    .shop-info {
+        padding: 10px 16px;
+        font-size: 14px;
+        color: #555;
+    }
+
+    .shop-images {
+        display: flex;
+        gap: 8px;
+        padding: 10px 16px;
+
+        img {
+            width: 100%;
+            border-radius: 12px;
+            object-fit: cover;
+        }
+    }
+
+    /* ✅ 가게 소개 박스 */
+    .shop-description {
+        background: #F4F4F4;
+        margin: 16px;
+        padding: 16px;
+        border-radius: 12px;
+
+        h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        p {
+            font-size: 14px;
+            color: #333;
+            line-height: 1.5;
+        }
+    }
+
+    /* ✅ 리워드 쿠폰 박스 */
+    .coupon-section {
+        background: #E9FFE7;
+        margin: 16px;
+        padding: 16px;
+        border-radius: 12px;
+        text-align: center;
+
+        .coupon-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+
+            &::before {
+                content: "🎁";
+                font-size: 16px;
+            }
+        }
+
+        .stamp-list {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            margin-top: 10px;
+
+            .stamp {
+                flex: none;
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                border: 2px dashed #ccc;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 12px;
+                color: #aaa;
+                font-weight: 500;
+                background: #fff;
+                cursor: pointer;
+                transition: all 0.2s ease-in-out;
+
+                &.active {
+                    border: 2px solid #1CE64D;
+                    color: #1CE64D;
+                    font-weight: 700;
+                    background: #F0FFF5;
+                }
+            }
+        }
+    }
+
+    .benefit-section {
+        margin: 20px 16px;
+        padding: 16px;
+        background: #f9fdf9;
+        border-radius: 12px;
+
+        h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .benefit-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            .benefit-card {
+                background: #e9ffe7;
+                border-radius: 8px;
+                padding: 12px;
+                font-size: 14px;
+                color: #333;
+            }
+        }
+
+        /* ✅ 씨앗 받기 버튼 스타일 */
+        .seed-btn {
+            margin-top: 16px;
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background: #62e59b;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s ease;
+
+            &:hover {
+                background: #4ccd85;
+            }
+        }
+    }
+
+
+
+
+    /* ✅ 팝업 스타일 */
+    .popup-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.4);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2000;
+    }
+
+    .popup {
+        background: #fff;
+        width: 90%;
+        max-width: 360px;
+        border-radius: 12px;
+        padding: 20px;
+        position: relative;
+        text-align: center;
+
+        .popup-close {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+
+            img {
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        /* ✅ 팝업 이미지 크기 제한 */
+        .gift-img,
+        .seed-img {
+            max-width: 120px;
+            height: auto;
+            margin: 0 auto 16px;
+            display: block;
+        }
+
+        h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        p {
+            font-size: 14px;
+            color: #555;
+            margin: 4px 0;
+        }
+
+        .confirm-btn {
+            width: 100%;
+            height: 44px;
+            margin-top: 16px;
+            border: none;
+            border-radius: 8px;
+            background: #62E59B;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+        }
+    }
+
+
+    /* ✅ 팝업 공통 스타일 */
+    .popup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 999;
+    }
+
+    .popup {
+        background: #fff;
+        padding: 20px;
+        border-radius: 12px;
+        width: 320px;
+        text-align: center;
+        position: relative;
+
+        h3 {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .confirm-btn {
+            margin-top: 10px;
+            background: #62E59B;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 20px;
+            color: #fff;
+            font-size: 14px;
+            cursor: pointer;
+
+            &:hover {
+                background: #4ccd85;
+            }
+        }
+
+        .popup-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            cursor: pointer;
+
+            img {
+                width: 20px;
+                height: 20px;
+            }
+        }
+    }
+}

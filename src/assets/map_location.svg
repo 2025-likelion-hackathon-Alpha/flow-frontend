@@ -1,0 +1,9 @@
+<svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+<foreignObject x="-27.1828" y="-27.1828" width="89.3656" height="89.3656"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(13.59px);clip-path:url(#bgblur_0_52_418_clip_path);height:100%;width:100%"></div></foreignObject><path data-figma-bg-blur-radius="27.1828" fill-rule="evenodd" clip-rule="evenodd" d="M17.5 35C27.165 35 35 27.165 35 17.5C35 7.83502 27.165 0 17.5 0C7.83502 0 0 7.83502 0 17.5C0 27.165 7.83502 35 17.5 35Z" fill="#BDFFB7"/>
+<foreignObject x="-19.1828" y="-19.1828" width="74.3656" height="74.3656"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(13.59px);clip-path:url(#bgblur_1_52_418_clip_path);height:100%;width:100%"></div></foreignObject><path data-figma-bg-blur-radius="27.1828" d="M18 8.5C23.2467 8.5 27.5 12.7533 27.5 18C27.5 23.2467 23.2467 27.5 18 27.5C12.7533 27.5 8.5 23.2467 8.5 18C8.5 12.7533 12.7533 8.5 18 8.5Z" fill="#BDFFB7" stroke="#1CE64D"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M18 22C20.2091 22 22 20.2091 22 18C22 15.7909 20.2091 14 18 14C15.7909 14 14 15.7909 14 18C14 20.2091 15.7909 22 18 22Z" fill="#1CE64D"/>
+<defs>
+<clipPath id="bgblur_0_52_418_clip_path" transform="translate(27.1828 27.1828)"><path fill-rule="evenodd" clip-rule="evenodd" d="M17.5 35C27.165 35 35 27.165 35 17.5C35 7.83502 27.165 0 17.5 0C7.83502 0 0 7.83502 0 17.5C0 27.165 7.83502 35 17.5 35Z"/>
+</clipPath><clipPath id="bgblur_1_52_418_clip_path" transform="translate(19.1828 19.1828)"><path d="M18 8.5C23.2467 8.5 27.5 12.7533 27.5 18C27.5 23.2467 23.2467 27.5 18 27.5C12.7533 27.5 8.5 23.2467 8.5 18C8.5 12.7533 12.7533 8.5 18 8.5Z"/>
+</clipPath></defs>
+</svg>

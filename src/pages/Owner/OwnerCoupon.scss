@@ -1,0 +1,152 @@
+.coupon-wrap {
+    font-family: 'Pretendard', sans-serif;
+
+    /* ✅ 헤더는 그대로 */
+    .custom-header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        padding: 14px;
+        background: #62e59b;
+        color: #fff;
+        border-radius: 0 0 20px 20px;
+
+        .back-icon {
+            position: absolute;
+            left: 16px;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .page-title {
+            font-size: 18px;
+            font-weight: 600;
+        }
+    }
+
+    .coupon-section {
+        padding: 12px;
+
+        /* 안내문 */
+        .info-text {
+            margin: 20px 0;
+            font-size: 14px;
+            color: #444;
+
+            .info-title {
+                font-size: 16px;
+                font-weight: 600;
+                margin-bottom: 6px;
+            }
+
+            .highlight {
+                color: #0c8a43;
+                font-weight: 600;
+            }
+
+            p {
+                margin: 4px 0;
+            }
+        }
+
+        /* 입력 폼 */
+        .form {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-bottom: 20px;
+
+            label {
+                font-size: 14px;
+                font-weight: 600;
+
+                .example {
+                    font-size: 12px;
+                    font-weight: 400;
+                    color: #0c8a43;
+                    margin-left: 4px;
+                }
+            }
+
+            input {
+                padding: 12px;
+                border: 1px solid #62e59b;
+                border-radius: 8px;
+                font-size: 14px;
+                outline: none;
+                transition: all 0.2s ease;
+
+                &::placeholder {
+                    color: #aaa;
+                }
+
+                &:focus {
+                    border-color: #4cc080;
+                    box-shadow: 0 0 0 2px rgba(98, 229, 155, 0.2);
+                }
+            }
+        }
+
+        /* 이미지 업로드 */
+        .image-upload {
+            margin: 20px 0;
+
+            .label {
+                font-size: 14px;
+                font-weight: 600;
+                margin-bottom: 8px;
+                display: block;
+            }
+
+            .upload-label {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 70px;
+                height: 70px;
+                border-radius: 50%;
+                border: 1px dashed #aaa;
+                background: #fafafa;
+                cursor: pointer;
+                transition: all 0.2s ease;
+
+                .plus {
+                    font-size: 28px;
+                    color: #999;
+                }
+
+                .file-name {
+                    font-size: 12px;
+                    color: #333;
+                }
+
+                &:hover {
+                    border-color: #62e59b;
+                    background: #f5fdf8;
+                }
+            }
+        }
+
+        /* 버튼 */
+        .btn.confirm {
+            width: 100%;
+            padding: 14px;
+            margin-top: 20px;
+            background: #62e59b;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #fff;
+            cursor: pointer;
+            transition: background 0.2s ease;
+
+            &:hover {
+                background: #4cc080;
+            }
+        }
+    }
+
+}

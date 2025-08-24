@@ -14,7 +14,7 @@ export default function Cover() {
     if (once.current) return
     once.current = true
     setLeaving(true)                      // 페이드아웃 시작
-    setTimeout(() => navigate('/select'), FADE) // FADE 후 라우팅
+    setTimeout(() => navigate('/login'), FADE) // FADE 후 라우팅 로그인 화면으로
   }
 
   useEffect(() => {

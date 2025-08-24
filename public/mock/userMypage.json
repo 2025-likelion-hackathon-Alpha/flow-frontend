@@ -1,0 +1,35 @@
+{
+    "content": [
+        {
+            "receiveCouponId": 101,
+            "user_id": 12,
+            "type": "REWARD",
+            "receiveAt": "2025-08-20T09:12:00Z",
+            "used": false,
+            "reward": {
+                "rewardCoupon_id": 45
+            },
+            "visit": null
+        },
+        {
+            "receiveCouponId": 102,
+            "user_id": 12,
+            "type": "VISIT",
+            "receiveAt": "2025-08-19T13:40:00Z",
+            "used": false,
+            "reward": null,
+            "visit": {
+                "shopInfo_id": 10
+            }
+        },
+        {
+            "receiveCouponId": 103,
+            "user_id": 12,
+            "type": "RECOMMEND",
+            "receiveAt": "2025-08-18T07:05:00Z",
+            "used": true,
+            "reward": null,
+            "visit": null
+        }
+    ]
+}
