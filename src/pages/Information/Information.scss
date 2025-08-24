@@ -1,0 +1,671 @@
+input,
+textarea,
+button,
+select {
+    font-family: inherit;
+}
+
+.back {
+    margin-left: 17px;
+    margin-top: 30px;
+    cursor: pointer;
+}
+
+.Information_wrap {
+    .title {
+        margin-top: 50px;
+        margin-left: 15px;
+
+        h1 {
+            font-weight: 700;
+            font-size: 20px;
+            font-style: bold;
+            color: #313131;
+        }
+    }
+
+    .time {
+        .txt {
+            margin-left: 15px;
+
+            h1 {
+                font-weight: 700;
+                font-style: bold;
+                font-size: 18px;
+                color: #313131;
+                margin-top: 46px;
+            }
+
+            p {
+                font-weight: 400;
+                font-size: 15px;
+                color: #8F8F8F;
+                margin-top: 10px;
+            }
+        }
+    }
+
+    .week {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 5px;
+        margin-top: 30px;
+
+        .day-chip {
+            width: 48px;
+            height: 48px;
+            border-radius: 999px;
+            border: 1px solid #D7D7D7;
+            background: #fff;
+            color: #8F8F8F;
+            font-size: 18px;
+            font-weight: 400;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+
+            &.active {
+                background: #E9FFE7;
+                color: #009331;
+                border: 1px solid #62E59B;
+            }
+        }
+    }
+
+    .intro {
+        margin-top: 30px;
+
+        p {
+            font-weight: 700;
+            font-size: 18px;
+            color: #313131;
+            margin-bottom: 10px;
+            margin-left: 15px;
+        }
+
+        .intro_wrap {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            textarea {
+                width: 369px;
+                height: 198px;
+                padding: 14px 14px 32px;
+                border: 1px solid #62E59B;
+                border-radius: 10px;
+                font-size: 13px;
+                font-family: inherit;
+                box-sizing: border-box;
+                outline: none;
+                resize: none;
+
+                &::placeholder {
+                    color: #8F8F8F80;
+                }
+            }
+
+            .char-count {
+                position: absolute;
+                right: 25px;
+                bottom: 8px;
+                font-size: 13px;
+                color: #8F8F8F80;
+            }
+        }
+    }
+
+    .photo {
+        margin-top: 24px;
+
+        p {
+            font-weight: 700;
+            font-style: bold;
+            font-size: 20px;
+            color: #313131;
+            margin-left: 15px;
+            margin-top: 31px;
+        }
+
+        .photo_grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 9px;
+            margin-left: 12px;
+            margin-right: 12px;
+            margin-top: 11px;
+        }
+
+        .thumb,
+        .add {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .thumb .del {
+            position: absolute;
+            top: 5px;
+            right: 6px;
+            border: none;
+            border-radius: 8px;
+            padding: 2px 6px;
+            background: rgba(0, 0, 0, 0.3);
+            color: #fff;
+            cursor: pointer;
+            font-size: 12px;
+            padding-bottom: 4px;
+        }
+
+        .add {
+            position: relative;
+            border: none;
+            cursor: pointer;
+
+            /* 바깥 사각형 연회색 + 가운데 동그라미(그라디언트로 표현) */
+            background:
+                radial-gradient(circle at center, #e6e6e6 0 21%, transparent 22%)
+                /* 안쪽 원 */
+                ,
+                #f3f3f3;
+            /* 바깥 사각형 */
+
+            /* + 아이콘: 가로/세로 선을 직접 그림(폰트 의존 X) */
+            &::before,
+            &::after {
+                content: "";
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                background-color: #8F8F8F;
+                /* + 색상 */
+                transform: translate(-50%, -50%);
+            }
+
+            &::before {
+                /* 가로선 */
+                width: 16px;
+                height: 1px;
+            }
+
+            &::after {
+                /* 세로선 */
+                width: 1px;
+                height: 16px;
+            }
+
+            &:active {
+                background:
+                    radial-gradient(circle at center, #dcdcdc 0 21%, transparent 22%),
+                    #e9e9e9;
+            }
+        }
+
+    }
+
+
+    .benefit {
+        p {
+            font-weight: 700;
+            font-style: bold;
+            font-size: 20px;
+            color: #313131;
+            margin-left: 15px;
+            margin-top: 31px;
+        }
+
+        .point {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 11px;
+
+            .review,
+            .money {
+                width: 372px;
+                height: 59px;
+                border-radius: 10px;
+                background-color: #E9FFE7;
+                cursor: pointer;
+
+                h3 {
+                    font-weight: 500;
+                    font-size: 15px;
+                    color: #313131;
+                    display: flex;
+                    align-items: center;
+                    padding: 16px 16px;
+                }
+            }
+        }
+    }
+
+}
+
+.next {
+    color: #8F8F8F;
+    font-size: 15px;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 8px;
+    margin-top: 80px;
+}
+
+
+/* === 운영시간 모달 === */
+.daySheet_overlay {
+    position: fixed;
+    inset: 0;
+    background: #00000080;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.daySheet {
+    width: min(95vw, 402px);
+    max-height: 90vh;
+    overflow: auto;
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, .15);
+}
+
+/* 헤더 */
+.sheet_header {
+    display: grid;
+    grid-template-columns: 40px 1fr 40px;
+    align-items: center;
+    margin-bottom: 8px;
+    margin-top: 10px;
+
+    h3 {
+        margin: 0;
+        text-align: center;
+        font-weight: 700;
+        font-size: 18px;
+        color: #313131;
+    }
+
+    .back_btn {
+        background: transparent;
+        border: 0;
+        cursor: pointer;
+        width: 10px;
+        height: 20px;
+    }
+
+    .out_btn {
+        background: transparent;
+        border: 0;
+        cursor: pointer;
+        background-color: none;
+        width: 14.5px;
+        height: 14.5px;
+        justify-self: end;
+    }
+}
+
+.sheet_sub {
+    font-size: 15px;
+    color: #8F8F8F;
+    font-weight: 400;
+    margin-top: 45px;
+    margin-left: 5px;
+}
+
+/* 요일 칩 */
+.sheet_days {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 27px;
+    margin-bottom: 30px;
+
+    .chip {
+        width: 45px;
+        height: 45px;
+        border-radius: 999px;
+        border: 1px solid #D7D7D7;
+        background: #fff;
+        color: #8F8F8F;
+        font-size: 16px;
+    }
+
+    .chip.on {
+        background: #E9FFE7;
+        color: #009331;
+        border-color: #62E59B;
+    }
+}
+
+.divider {
+    height: 1px;
+    background: #E9E9E9;
+    margin: 14px 0;
+}
+
+.sheet_row .day_label {
+    display: block;
+    font-weight: 700;
+    color: #313131;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.time_inputs {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    justify-content: center;
+
+    .time-text-input {
+        width: 121px;
+        height: 48px;
+        border: 1px solid #62E59B;
+        border-radius: 10px;
+        text-align: center;
+        font-size: 20px;
+        font-weight: 400;
+        color: #313131;
+        background: #fff;
+        padding: 0 8px;
+        outline: none;
+    }
+
+    .tilde {
+        color: #555555;
+    }
+}
+
+.hint_row {
+    display: flex;
+    gap: 150px;
+    margin-left: 90px;
+    margin-top: 4px;
+
+    small {
+        color: #8F8F8F;
+        font-size: 12px;
+        font-weight: 400;
+    }
+}
+
+.sheet_confirm {
+    width: 362px;
+    height: 60px;
+    border: 0;
+    border-radius: 10px;
+    background: #62E59B;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 50px;
+}
+
+
+/* ===== 공통 필드 ===== */
+.field {
+    width: 100%;
+    box-sizing: border-box;
+    background: #E9FFE7;
+    border-radius: 10px;
+    padding: 11px 14px;
+    font-size: 14px;
+    border: 1px solid #00933180;
+
+    &::placeholder {
+        color: #8F8F8F80;
+    }
+}
+
+.field_label {
+    display: block;
+    font-size: 14px;
+    color: #313131;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.example {
+    color: #009331;
+    font-size: 12px;
+    font-weight: 400;
+    margin-bottom: 6px;
+}
+
+.hint {
+    display: block;
+    color: #009331;
+    font-size: 11px;
+    margin: 6px 2px 15px;
+}
+
+.sheet_benefit {
+    font-weight: 700;
+    font-size: 20px;
+    color: #313131;
+    margin-top: 40px;
+}
+
+.benefit_sheet_sub {
+    font-weight: 400;
+    font-size: 15px;
+    color: #8F8F8F;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+/* ===== 혜택 ===== */
+.benefit_section {
+    border-radius: 10px;
+    margin: 6px 0;
+    background: #F4F4F4;
+
+    .section_header {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 20px 15px;
+        border: 0;
+        background: transparent;
+        cursor: pointer;
+
+        span {
+            font-size: 15px;
+            color: #313131;
+            font-weight: 500;
+        }
+
+        .chev {
+            width: 16px;
+            height: 16px;
+            transform: rotate(0deg);
+            transition: transform .2s;
+            opacity: .7;
+        }
+    }
+
+    .section_body {
+        padding: 10px 12px 14px;
+        border-top: 0;
+
+        .hint {
+            display: block;
+            color: #009331;
+            font-size: 12px;
+            margin-top: -20px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #E9E9E9;
+            /* 회색 구분선 */
+        }
+
+        textarea.field {
+            resize: none;
+            height: 52px;
+            padding-top: 15px;
+        }
+    }
+
+    /* 방문 횟수 */
+    .visit_times_row {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        margin-bottom: 10px;
+
+        .checkbox {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 15px;
+            font-weight: 500;
+            padding-bottom: 8px;
+            padding-left: 10px;
+            color: #8F8F8F;
+            cursor: pointer;
+
+            input {
+                width: 16px;
+                height: 16px;
+                accent-color: #009331;
+            }
+
+            &.on {
+                color: #009331;
+            }
+        }
+    }
+
+    .field {
+        margin-bottom: 15px;
+    }
+
+
+    /* 쿠폰 사진 업로드 */
+    .visit_photos {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        margin-top: 10px;
+        gap: 2px;
+
+        .thumb,
+        .add {
+            width: 100%;
+            aspect-ratio: 1/1;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            background: #f3f3f3;
+        }
+
+        .thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .thumb .del {
+            position: absolute;
+            top: 5px;
+            right: 6px;
+            border: none;
+            border-radius: 8px;
+            padding: 2px 6px 4px;
+            background: rgba(0, 0, 0, .3);
+            color: #fff;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .add {
+            border: none;
+            cursor: pointer;
+            background: radial-gradient(circle at center, #e6e6e6 0 21%, transparent 22%), #f3f3f3;
+
+            &::before,
+            &::after {
+                content: "";
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                background: #8F8F8F;
+            }
+
+            &::before {
+                width: 16px;
+                height: 1px;
+            }
+
+            &::after {
+                width: 1px;
+                height: 16px;
+            }
+        }
+    }
+
+    /* 활성화 색상(선택된 섹션) */
+    &.active {
+        background: #E9FFE7;
+
+        .section_header .chev {
+            transform: rotate(180deg);
+        }
+    }
+}
+
+
+/* 모달 박스 */
+.daySheet {
+    width: min(95vw, 412px);
+    max-height: 90vh;
+    overflow: auto;
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* 모달 푸터 컨테이너 */
+.modal_footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 8px;
+}
+
+/* 모달용 버튼 */
+.modal_footer_btn {
+    width: 372px;
+    height: 60px;
+    border: 0;
+    border-radius: 10px;
+    background: #62E59B;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    flex: 0 0 auto;
+}

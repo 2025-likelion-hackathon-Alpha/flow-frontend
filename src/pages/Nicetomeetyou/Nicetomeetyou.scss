@@ -1,0 +1,74 @@
+.Welcome_wrap {
+    width: 100%;
+    height: 874px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    background: linear-gradient(180deg, #62E59B 0%, #6EB5CA 100%);
+    position: relative;
+    overflow: hidden;
+
+    .bg-layer {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0) 0%,
+            #a0e9ff 100%
+        );
+        z-index: 0; // 뒤에 깔림
+    }
+
+    .welcome {
+        position: relative;
+        z-index: 1; // 글씨는 위에
+        text-align: center;
+        color: #fff;
+        margin-top: 311px;
+
+        h1 {
+            font-size: 25px;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        p {
+            font-size: 18px;
+            font-weight: 400;
+        }
+    }
+
+    .option {
+        position: absolute;
+        bottom: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        z-index: 2;
+        gap: 10px;
+
+        .next {
+            background: #fff;
+            color: #62E59B;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 20px;
+            width: 372px;
+            height: 60px;
+            padding: 14px;
+        }
+
+        .skip {
+            color: #fff;
+            text-align: center;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 16px;
+        }
+    }
+}

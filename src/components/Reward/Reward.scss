@@ -1,0 +1,89 @@
+.Reward_wrap {
+    width: 372px;
+    border-radius: 20px;
+    background: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Pretendard', sans-serif;
+
+    .reward_header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 150px;
+
+        .header_txt {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            margin-left: 25px;
+            margin-top: 5px;
+
+            .user {
+                font-size: 15px;
+                font-weight: 500;
+                color: #8F8F8F;
+            }
+
+            .username {
+                font-weight: 600;
+                color: #000000;
+                font-size: 19px;
+            }
+
+            .points {
+                font-size: 19px;
+                font-weight: 600;
+
+                .number {
+                    font-size: 38px;
+                    color: #62E59B;
+                    font-weight: 600;
+                }
+            }
+        }
+
+        .header_img {
+            flex-shrink: 0;
+            margin-right: 23px;
+            margin-top: 15px;
+
+            img {
+                width: 160px;
+                height: auto;
+                object-fit: contain;
+            }
+        }
+    }
+
+
+    .reward_footer {
+        background-color: #E9FFE7E5;
+        padding: 14px 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+
+        p {
+            font-size: 13px;
+            color: #009331B2;
+            line-height: 1.5;
+            font-weight: 500;
+            margin-top: 2px;
+        }
+
+        .link {
+            background: none;
+            border: none;
+            color: #009331B2;
+            font-weight: 600;
+            align-self: flex-end;
+            cursor: pointer;
+            font-size: 14px;
+        }
+    }
+
+
+}

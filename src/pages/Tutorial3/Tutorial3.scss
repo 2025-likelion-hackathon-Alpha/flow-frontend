@@ -1,0 +1,79 @@
+.Tutorial_wrap {
+    width: 100%;
+    height: 873px; //min-height: 100vh;
+    background-color: #62E59B;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    .back {
+        margin-left: 17px;
+        margin-top: 30px;
+        cursor: pointer;
+    }
+
+    .slide {
+        width: 360px;
+        margin: 0 auto;
+    }
+
+    .title {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        margin-top: 20px;
+        margin-left: 30px;
+
+        img {
+            width: 22px;
+            height: 22px;
+        }
+
+        p {
+            color: #fff;
+            font-weight: 500;
+            font-size: 20px;
+            margin-bottom: 3px;
+        }
+    }
+
+    .example {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        img {
+            width: 257px;
+            height: 514px;
+            margin-top: 30px;
+        }
+
+        p {
+            color: #fff;
+            font-weight: 400;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            width: 372px;
+            height: 60px;
+            background-color: #fff;
+            color: #62E59B;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 500;
+            font-size: 20px;
+            padding-bottom: 3px;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+}

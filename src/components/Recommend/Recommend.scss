@@ -1,0 +1,74 @@
+.Recommend_wrap {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  font-family: 'Pretendard', sans-serif;
+  width: 371px;
+
+  .recommend-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+
+    .title {
+      font-size: 17px;
+      font-weight: 600;
+      color: #313131;
+    }
+
+    .link {
+      font-size: 16px;
+      font-weight: 500;
+      color: #313131;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      margin-top: -15px;
+    }
+  }
+
+  .recommend-body {
+    display: flex;
+    gap: 12px;
+
+    .image img {
+      width: 103px;
+      height: 103px;
+      object-fit: cover;
+      border-radius: 9px;
+    }
+
+    .info {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      margin-top: 5px;
+      margin-left: 3px;
+
+      .store {
+        margin-bottom: 4px;
+
+        .name {
+          font-size: 18px;
+          font-weight: 600;
+          margin-right: 6px;
+          color: #000;
+        }
+
+        .status {
+          font-size: 16px;
+          font-weight: 400;
+          color: #8F8F8F;
+        }
+      }
+
+      .desc {
+        font-size: 16px;
+        font-weight: 500;
+        color: #009331;
+      }
+    }
+  }
+}
