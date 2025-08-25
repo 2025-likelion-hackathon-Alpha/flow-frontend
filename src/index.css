@@ -13,6 +13,10 @@ body {
     -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
+body.modal-open .footer {
+  display: none;
+}
+
 #root {
   width: 402px;
   min-height: 874px;

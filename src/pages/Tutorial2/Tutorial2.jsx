@@ -14,7 +14,7 @@ const Tutorial2 = () => {
   return (
     <>
       <div className="Tutorial_wrap">
-        <Header title='Flow' />
+        <Header title='Flow' bgColor='#62E59B'/>
         <div className="back" onClick={() => navigate(-1)}>
           <img src={Back} alt="뒤로가기" />
         </div>

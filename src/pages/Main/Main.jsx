@@ -7,16 +7,24 @@ import Calendar from '../../components/Calendar/Calendar'
 import Recommend from '../../components/Recommend/Recommend'
 import Back from '../../assets/Back.svg'
 import Cafe from '../../assets/Cafe.png'
+import { useEffect } from "react"
 
 const Main = () => {
   const [isOpen, setIsOpen] = useState(false)
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add("modal-open")
+    } else {
+      document.body.classList.remove("modal-open")
+    }
+  }, [isOpen])
 
   // 로그인한 사용자 이름 (임시로 하드코딩, 나중에 props/context에서 가져오면 됨)
   const username = "아기사자"
 
   return (
     <div className="Main_wrap">
-      <Header title="Flow" />
+      <Header title="Flow" bgColor='#62E59B' />
 
       <div className="options">
         <div className="logo">

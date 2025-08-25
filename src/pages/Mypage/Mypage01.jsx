@@ -9,31 +9,16 @@ export default function Mypage01() {
   const [userData, setUserData] = useState(null);
 
   useEffect(() => {
-    const fetchUserData = async () => {
-      try {
-        // ✅ 반드시 로그인 시 localStorage 등에 저장된 userId 사용
-        const userId = localStorage.getItem("userId");
-        if (!userId) {
-          console.error("userId가 없습니다. 로그인 후 이용해주세요.");
-          return;
-        }
+    const userId = sessionStorage.getItem("userId")
+    fetch(`http://54.180.244.106:8080/api/user/${userId}/userMypage`, {
+      method: "GET",
+      credentials: "include",
+    })
+      .then(res => res.json())
+      .then(data => setUserData(data))
+      .catch(err => console.error("유저 마이페이지 API 에러:", err))
+  }, [])
 
-        const res = await fetch(
-          `http://54.180.244.106:8080/api/user/${userId}/userMypage`,
-          { method: "GET", credentials: "include" }
-        );
-
-        if (!res.ok) throw new Error("마이페이지 불러오기 실패");
-
-        const data = await res.json();
-        setUserData(data);
-      } catch (err) {
-        console.error("유저 마이페이지 API 에러:", err);
-      }
-    };
-
-    fetchUserData();
-  }, []);
 
 
   if (!userData) return <div>로딩 중...</div>;

@@ -19,6 +19,7 @@ import Success from './pages/Success/Success'
 import Main from './pages/Main/Main'
 import RewardShop from './pages/RewardShop/RewardShop'
 
+
 // ✅ 사장님 화면
 import OwnerHome from './pages/Owner/OwnerHome';
 import OwnerPayment from './pages/Owner/OwnerPayment';
@@ -36,9 +37,10 @@ function AppInner() {
 
   // ✅ 푸터 가려야 하는 경로들
   const hideFooterPaths = [
-    "/", "/login", "/signup",
+    "/", "/select","/signup/general", "/login", "/signup",
     "/funding-history", "/coupon",
-    "/owner", "/owner/home", "/owner/payment", "/owner/coupon"
+    "/owner", "/owner/home", "/owner/payment", "/owner/coupon","/Nicetomeetyou", "/tutorial1"
+    ,"/tutorial2", "/tutorial3", "/success"
   ];
 
   // ✅ 동적 라우트(/shop/:id)도 포함되도록 처리

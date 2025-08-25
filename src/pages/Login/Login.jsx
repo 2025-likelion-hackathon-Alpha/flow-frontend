@@ -44,7 +44,7 @@ const Login = () => {
 
       // role 값에 따라 라우팅
       if (data.role === 'GENERAL') {
-        navigate('/home')       // 일반 사용자 홈
+        navigate('/Nicetomeetyou')       // 일반 사용자 홈
       } else if (data.role === 'SHOP') {
         navigate('/store')      // 매장 사용자 홈
       } else {
@@ -60,7 +60,7 @@ const Login = () => {
 
   return (
     <>
-      <Header title='Flow' />
+      <Header title='Flow' bgColor='#62E59B'/>
       <div className="Login_wrap">
         <div className="logo">
           <img src={Logo} alt="" />

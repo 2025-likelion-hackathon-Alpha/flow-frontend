@@ -13,17 +13,17 @@ export default function OwnerHome() {
         const fetchShopData = async () => {
             try {
                 const res = await fetch(
-                    `http://54.180.244.106:8080/api/shopMypage/summaryShopInfo`,
+                    `http://54.180.244.106:8080/api/shopMypage/summaryShopInfo?shopInfoId=${shopInfoId}`,
                     {
                         method: "GET",
-                        credentials: "include", // 세션/쿠키 기반 인증이면 필요
+                        credentials: "include", 
                     }
                 );
                 if (!res.ok) throw new Error("매장 요약 불러오기 실패");
                 const data = await res.json();
                 setShopData(data);
             } catch (err) {
-                console.error("❌ 매장 데이터 불러오기 에러:", err);
+                console.error("매장 데이터 불러오기 에러:", err);
             }
         };
 

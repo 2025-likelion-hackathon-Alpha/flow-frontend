@@ -77,18 +77,26 @@ body {
             align-items: center;
             background: #E9FFE7;
             border-radius: 10px;
-            padding: 14px 20px;
+            padding: 5px 20px;
             font-size: 16px;
             font-weight: 600;
+            align-items: center;
+            display: flex;
 
             .value {
                 font-size: 18px;
                 font-weight: 700;
                 color: #0f9d58;
             }
+            .title{
+                display: flex;
+                align-items: center;
+                font-size: 20px;
+                font-weight: 600;
+            }
 
             .unit {
-                font-size: 16px;
+                font-size: 20px;
                 font-weight: 600;
                 color: #111;
             }

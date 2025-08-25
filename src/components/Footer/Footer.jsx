@@ -18,7 +18,7 @@ export default function Footer() {
   return (
     <nav className="footer">
       {/* 홈 */}
-      <NavLink to="/home" className="tab" end>
+      <NavLink to="/main" className="tab" end>
         {({ isActive }) => (
           <>
             {isActive ? <HomeIconActive className="icon" /> : <HomeIcon className="icon" />}

@@ -12,8 +12,9 @@ export default function FundingPage() {
 
     const [nickname, setNickname] = useState("");
     const [fundingList, setFundingList] = useState([]);
+    const [loading, setLoading] = useState(true);
 
-    // ✅ API 호출
+    //  API 호출
     useEffect(() => {
         const fetchFunding = async () => {
             try {
@@ -21,21 +22,32 @@ export default function FundingPage() {
                     method: "GET",
                     credentials: "include", // 로그인 세션/쿠키 필요 시
                 });
-                if (!res.ok) throw new Error("펀딩 데이터 불러오기 실패");
-                const data = await res.json();
 
-                setNickname(data.nickname);
-                setFundingList(data.fundingList);
+                const data = await res.json().catch(() => null);
+
+                console.log("펀딩 API 상태:", res.status);
+                console.log("펀딩 API 응답:", data);
+
+                if (!res.ok || !data) {
+                    throw new Error(`펀딩 데이터 불러오기 실패 (status: ${res.status})`);
+                }
+
+                setNickname(data.nickname || "");
+                setFundingList(data.fundingList || []);
             } catch (err) {
                 console.error("❌ 펀딩 API 에러:", err);
+                setFundingList([]); // 에러 시 빈 배열 유지
+            } finally {
+                setLoading(false);
             }
         };
 
         fetchFunding();
     }, []);
 
-    // ✅ 날짜 차이 계산
+    // 날짜 차이 계산
     const getDeadlineDays = (endDate) => {
+        if (!endDate) return 0;
         const today = new Date();
         const end = new Date(endDate);
         return Math.max(0, Math.ceil((end - today) / (1000 * 60 * 60 * 24)));
@@ -92,42 +104,48 @@ export default function FundingPage() {
                 </div>
 
                 {/* 펀딩 카드 리스트 */}
-                {fundingList.map((funding) => {
-                    const percent = Math.floor((funding.nowSeed / funding.goalSeed) * 100);
-                    const deadline = getDeadlineDays(funding.endDate);
-                    const deadlineClass = deadline <= 5 ? "deadline urgent" : "deadline";
+                {loading ? (
+                    <p>로딩 중...</p>
+                ) : fundingList.length === 0 ? (
+                    <p>펀딩 데이터가 없습니다.</p>
+                ) : (
+                    fundingList.map((funding) => {
+                        const percent = Math.floor((funding.nowSeed / funding.goalSeed) * 100);
+                        const deadline = getDeadlineDays(funding.endDate);
+                        const deadlineClass = deadline <= 5 ? "deadline urgent" : "deadline";
 
-                    return (
-                        <div
-                            key={funding.fundingId}
-                            className="funding-card"
-                            onClick={() => navigate(`/funding/${funding.fundingId}`)}
-                            style={{ cursor: "pointer" }}
-                        >
-                            <img src={funding.image} alt={funding.title} className="funding-img" />
-                            <div className="funding-content">
-                                <h3 className="funding-title">{funding.title}</h3>
-                                <p className="funding-org">{funding.organizer}</p>
+                        return (
+                            <div
+                                key={funding.fundingId}
+                                className="funding-card"
+                                onClick={() => navigate(`/funding/${funding.fundingId}`)}
+                                style={{ cursor: "pointer" }}
+                            >
+                                <img src={funding.image} alt={funding.title} className="funding-img" />
+                                <div className="funding-content">
+                                    <h3 className="funding-title">{funding.title}</h3>
+                                    <p className="funding-org">{funding.organizer}</p>
 
-                                <p className="funding-progress">
-                                    <span className="current">{funding.nowSeed.toLocaleString()}</span>
-                                    <span className="unit"> 씨앗</span>
-                                    <span className="total">/{funding.goalSeed.toLocaleString()}</span>
-                                </p>
+                                    <p className="funding-progress">
+                                        <span className="current">{funding.nowSeed.toLocaleString()}</span>
+                                        <span className="unit"> 씨앗</span>
+                                        <span className="total">/{funding.goalSeed.toLocaleString()}</span>
+                                    </p>
 
-                                <div className="progress-wrapper">
-                                    <div className="progress-bar">
-                                        <div className="progress" style={{ width: `${percent}%` }}></div>
-                                    </div>
-                                    <div className="progress-text">
-                                        <span className="percent">{percent}%</span>
-                                        <span className={deadlineClass}>{deadline}일 뒤 마감</span>
+                                    <div className="progress-wrapper">
+                                        <div className="progress-bar">
+                                            <div className="progress" style={{ width: `${percent}%` }}></div>
+                                        </div>
+                                        <div className="progress-text">
+                                            <span className="percent">{percent}%</span>
+                                            <span className={deadlineClass}>{deadline}일 뒤 마감</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    );
-                })}
+                        );
+                    })
+                )}
             </div>
         </div>
     );
