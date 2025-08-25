@@ -17,33 +17,47 @@ const StoreSignup = () => {
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
 
-  // ✅ 주소 → 구글 Place ID 변환 함수
+  // ✅ 주소 → 위도, 경도 변환
+  const fetchLatLngFromAddress = async (address) => {
+    try {
+      const geoRes = await fetch(
+        `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(address)}&key=${GOOGLE_API_KEY}`
+      )
+      const geoData = await geoRes.json()
+
+      if (!geoData.results.length) throw new Error("주소 변환 실패")
+
+      const { lat, lng } = geoData.results[0].geometry.location
+      setLatitude(lat)
+      setLongitude(lng)
+      console.log("✅ 위도/경도:", lat, lng)
+      return { lat, lng }
+    } catch (err) {
+      console.error("위도/경도 변환 에러:", err)
+      return { lat: null, lng: null }
+    }
+  }
+
+  // ✅ 주소 → Place ID 변환
   const fetchPlaceIdFromAddress = async (address) => {
     try {
-      // 1. 주소 → 위도/경도 변환
       const geoRes = await fetch(
         `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(address)}&key=${GOOGLE_API_KEY}`
       )
       const geoData = await geoRes.json()
       if (!geoData.results.length) throw new Error("주소 변환 실패")
 
-      const { lat, lng } = geoData.results[0].geometry.location
-
-      // 2. 위도/경도 → Place ID 변환
-      const placeRes = await fetch(
-        `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${GOOGLE_API_KEY}`
-      )
-      const placeData = await placeRes.json()
-      if (!placeData.results.length) throw new Error("Place ID 변환 실패")
-
-      const pid = placeData.results[0].place_id
+      const pid = geoData.results[0].place_id
       setPlaceId(pid)
       console.log("✅ 변환된 Google Place ID:", pid)
+      return pid
     } catch (err) {
-      console.error("구글 Place 변환 에러:", err)
+      console.error("구글 Place ID 변환 에러:", err)
+      return null
     }
   }
 
+  // ✅ 회원가입 요청
   const handleSubmit = async () => {
     if (!storeName.trim()) return alert('매장 이름을 입력해 주세요.')
     if (!storeAddress.trim()) return alert('매장 주소를 입력해 주세요.')
@@ -52,6 +66,12 @@ const StoreSignup = () => {
 
     try {
       setLoading(true)
+
+      // 주소 → 위도/경도 변환
+      const { lat, lng } = await fetchLatLngFromAddress(storeAddress)
+      // 주소 → Place ID 변환
+      const pid = await fetchPlaceIdFromAddress(storeAddress)
+
       const res = await fetch('https://api.flowalpha.store/api/users/signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -61,21 +81,24 @@ const StoreSignup = () => {
           password,
           role: "SHOP",
           location: storeAddress,
-          googlePlaceId: placeId,  // ✅ 구글 Place ID 함께 전송
-          latitude: null,
-          longitude: null,
+          googlePlaceId: pid,
+          latitude: lat,
+          longitude: lng,
           category: "ECT"
         }),
       })
+
       if (!res.ok) throw new Error('store signup failed')
-      navigate('/information', { state: { storeName } })
+      alert("회원가입 성공!")
+      navigate('/login') // ✅ 가입 후 로그인 화면으로 이동
     } catch (e) {
+      console.error(e)
       alert('가입에 실패했어요. 잠시 후 다시 시도해 주세요.')
     } finally {
       setLoading(false)
     }
   }
-
+  
   return (
     <>
       <Header title='Flow' />
