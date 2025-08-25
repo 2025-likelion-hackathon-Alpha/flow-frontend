@@ -34,7 +34,7 @@ const Login = () => {
       }
 
       // ✅ 토큰 저장 (tokens는 문자열임)
-      localStorage.setItem("accessToken", data.tokens)
+      localStorage.setItem("accessToken", data.token)
 
       // userId 저장
       sessionStorage.setItem('userId', data.userId)
@@ -44,17 +44,17 @@ const Login = () => {
       console.log('로그인 성공 전체 데이터:', data)   // 🔍 응답 구조 확인
 
       // ✅ 토큰 확인
-      if (data.tokens) {
+      if (data.token) {
         console.log("토큰 값:", data.tokens)
 
         // 문자열인 경우
-        if (typeof data.tokens === "string") {
-          localStorage.setItem("accessToken", data.tokens)
+        if (typeof data.token === "string") {
+          localStorage.setItem("accessToken", data.token)
         }
 
         // 객체 안에 accessToken이 있는 경우
-        else if (data.tokens.accessToken) {
-          localStorage.setItem("accessToken", data.tokens.accessToken)
+        else if (data.token.accessToken) {
+          localStorage.setItem("accessToken", data.token.accessToken)
         }
       } else {
         console.warn("⚠️ 응답에 tokens 값이 없음!")
