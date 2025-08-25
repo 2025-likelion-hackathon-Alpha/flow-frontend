@@ -37,14 +37,21 @@ const GeneralSignup = () => {
           googlePlaceId: ""
         }),
       })
+
       if (!res.ok) throw new Error('signup failed')
-      navigate('/nicetomeetyou', { state: { username: nickname } });
+
+      // ✅ 회원가입 성공 시 로그인 페이지로 이동
+      navigate('/login')
+      // 혹은 nicetomeetyou 페이지로 보내고 싶으면 아래 코드
+      // navigate('/nicetomeetyou', { state: { username: nickname } });
+
     } catch (e) {
       alert('회원가입 실패. 잠시 후 다시 시도해 주세요.')
     } finally {
       setLoading(false)
     }
   }
+
 
   return (
     <>
