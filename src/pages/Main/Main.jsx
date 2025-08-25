@@ -19,32 +19,19 @@ const Main = () => {
       try {
         const res = await fetch("https://api.flowalpha.store/api/home", {
           method: "GET",
-          credentials: "include", // ✅ 세션/쿠키 포함
+          credentials: "include",  // 세션/쿠키 필요시
         });
 
-        const text = await res.text(); // 응답을 문자열로 먼저 받기
+        const text = await res.text();   // 먼저 문자열로 받아봄
         console.log("홈 API 상태:", res.status, text);
 
         if (!res.ok) throw new Error("홈 데이터 실패");
 
-        const data = JSON.parse(text); // JSON으로 파싱
+        const data = JSON.parse(text);   // JSON 파싱
         setHomeData(data);
 
-        // ✅ 추천 매장 상세 데이터 호출
-        const detailRes = await fetch(
-          `https://api.flowalpha.store/api/home/recommendShop?recommendShopId=${data.recommendShopId}`,
-          { credentials: "include" }
-        );
-
-        const detailText = await detailRes.text();
-        console.log("추천 매장 API 상태:", detailRes.status, detailText);
-
-        if (!detailRes.ok) throw new Error("추천 매장 실패");
-
-        const detailData = JSON.parse(detailText);
-        setShopDetail(detailData);
       } catch (e) {
-        console.error(e);
+        console.error("홈 API 에러:", e);
         alert("홈 데이터를 불러오지 못했어요");
       } finally {
         setLoading(false);
@@ -52,6 +39,7 @@ const Main = () => {
     };
     fetchHome();
   }, []);
+
 
 
   if (loading) return <p>홈 화면 불러오는 중...</p>
