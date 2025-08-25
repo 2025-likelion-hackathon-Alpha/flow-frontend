@@ -78,7 +78,7 @@ const Information = () => {
     if (selectedDays.length === 0) return alert('운영 요일을 선택해 주세요.')
     try {
       setLoading(true)
-      const res = await fetch('/api/store/info', {
+      const res = await fetch('https://api.flowalpha.store/api/store/info', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

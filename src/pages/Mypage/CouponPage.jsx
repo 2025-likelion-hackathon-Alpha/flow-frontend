@@ -22,7 +22,7 @@ const CouponPage = () => {
     const fetchCoupons = async () => {
       try {
         const res = await fetch(
-          `http://54.180.244.106:8080/api/user/${userId}/userMypage/coupon`,
+          `https://api.flowalpha.store/api/user/${userId}/userMypage/coupon`,
           { method: "GET", credentials: "include" }
         );
         if (!res.ok) throw new Error("쿠폰 리스트 불러오기 실패");
@@ -56,7 +56,7 @@ const CouponPage = () => {
 
     try {
       const res = await fetch(
-        `http://54.180.244.106:8080/api/user/${userId}/mypage/coupons/${selected}/use`,
+        `https://api.flowalpha.store/api/user/${userId}/mypage/coupons/${selected}/use`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

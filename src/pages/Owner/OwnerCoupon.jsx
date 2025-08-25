@@ -38,7 +38,7 @@ export default function OwnerCoupon() {
 
         try {
             const response = await fetch(
-                "http://54.180.244.106:8080/api/shopMypage/addrewardCoupon",
+                "https://api.flowalpha.store/api/shopMypage/addrewardCoupon",
                 {
                     method: "POST",
                     body: formData,

@@ -17,7 +17,7 @@ const Login = () => {
 
     try {
       setLoading(true)
-      const res = await fetch('http://54.180.244.106:8080/api/users/login', {
+      const res = await fetch('https://api.flowalpha.store/api/users/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -60,7 +60,7 @@ const Login = () => {
 
   return (
     <>
-      <Header title='Flow' bgColor='#62E59B'/>
+      <Header title='Flow'/>
       <div className="Login_wrap">
         <div className="logo">
           <img src={Logo} alt="" />

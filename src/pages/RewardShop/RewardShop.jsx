@@ -15,7 +15,7 @@ const RewardShop = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const res = await fetch("/api/rewardShop", {
+                const res = await fetch("https://api.flowalpha.store/api/rewardShop", {
                     method: "GET",
                     headers: { "Content-Type": "application/json" },
                 })

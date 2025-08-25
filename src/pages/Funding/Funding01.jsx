@@ -18,7 +18,7 @@ export default function FundingPage() {
     useEffect(() => {
         const fetchFunding = async () => {
             try {
-                const res = await fetch("http://54.180.244.106:8080/api/funding", {
+                const res = await fetch("https://api.flowalpha.store/api/funding", {
                     method: "GET",
                     credentials: "include", // 로그인 세션/쿠키 필요 시
                 });

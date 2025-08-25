@@ -22,7 +22,7 @@ const StoreSignup = () => {
 
     try {
       setLoading(true)
-      const res = await fetch('http://54.180.244.106:8080/users/signup', {
+      const res = await fetch('https://api.flowalpha.store/api/users/signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

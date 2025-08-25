@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './Main.scss'
 import Header from '../../components/Header/Header'
 import Logo from '../../assets/WhiteLogo.svg'
@@ -6,52 +6,78 @@ import Reward from '../../components/Reward/Reward'
 import Calendar from '../../components/Calendar/Calendar'
 import Recommend from '../../components/Recommend/Recommend'
 import Back from '../../assets/Back.svg'
-import Cafe from '../../assets/Cafe.png'
-import { useEffect } from "react"
 
 const Main = () => {
   const [isOpen, setIsOpen] = useState(false)
-  useEffect(() => {
-    if (isOpen) {
-      document.body.classList.add("modal-open")
-    } else {
-      document.body.classList.remove("modal-open")
-    }
-  }, [isOpen])
+  const [homeData, setHomeData] = useState(null)       // /api/home
+  const [shopDetail, setShopDetail] = useState(null)   // /api/home/recommendShop
+  const [loading, setLoading] = useState(true)
 
-  // 로그인한 사용자 이름 (임시로 하드코딩, 나중에 props/context에서 가져오면 됨)
-  const username = "아기사자"
+  // 처음 홈 데이터 불러오기
+  useEffect(() => {
+    const fetchHome = async () => {
+      try {
+        const res = await fetch("https://api.flowalpha.store/api/home")
+        if (!res.ok) throw new Error("홈 데이터 실패")
+        const data = await res.json()
+        setHomeData(data)
+
+        // 추천 매장 상세 데이터 호출
+        const detailRes = await fetch(`https://api.flowalpha.store/api/home/recommendShop?recommendShopId=${data.recommendShopId}`)
+        if (!detailRes.ok) throw new Error("추천 매장 실패")
+        const detailData = await detailRes.json()
+        setShopDetail(detailData)
+      } catch (e) {
+        console.error(e)
+        alert("홈 데이터를 불러오지 못했어요")
+      } finally {
+        setLoading(false)
+      }
+    }
+    fetchHome()
+  }, [])
+
+  if (loading) return <p>홈 화면 불러오는 중...</p>
+  if (!homeData || !shopDetail) return <p>데이터 없음</p>
+
+  // checkDate → 달력에 쓸 일(day)만 추출
+  const pointDays = shopDetail.checkDate.map(d => new Date(d).getDate())
 
   return (
     <div className="Main_wrap">
-      <Header title="Flow" bgColor='#62E59B' />
+      <Header title="Flow" />
 
       <div className="options">
         <div className="logo">
           <img src={Logo} alt="" />
         </div>
 
-        {/* 리워드 (페이지 이동만) */}
-        <Reward user={username} points={1200} />
+        {/* 리워드 */}
+        <Reward user={homeData.nickname} points={homeData.point} />
 
         {/* 캘린더 */}
         <Calendar
-          year={2025}
-          month={8}
-          today={27}
-          pointDays={[3, 12, 19, 27]}
+          year={new Date().getFullYear()}
+          month={new Date().getMonth() + 1}
+          today={new Date().getDate()}
+          pointDays={pointDays}
         />
 
-        {/* 추천 매장 (여기서 모달 열림) */}
-        <Recommend onOpen={() => setIsOpen(true)} />
+        {/* 추천 매장 카드 */}
+        <Recommend
+          user={shopDetail.nickname}
+          storeName={shopDetail.shopName}
+          status={shopDetail.openStatus ? "영업중" : "영업종료"}
+          description={shopDetail.recommendInfo}
+          image={shopDetail.shopImage}
+          onOpen={() => setIsOpen(true)}
+        />
       </div>
 
-      {/* AI 소비 추천 매장 모달 */}
+      {/* 추천 매장 모달 */}
       {isOpen && (
         <div className="modal-overlay" onClick={() => setIsOpen(false)}>
           <div className="modal-card" onClick={(e) => e.stopPropagation()}>
-
-            {/* 헤더 */}
             <div className="modal-header">
               <button className="back-btn" onClick={() => setIsOpen(false)}>
                 <img src={Back} alt="뒤로가기" />
@@ -59,52 +85,54 @@ const Main = () => {
               <h2>AI 소비 추천 매장</h2>
             </div>
 
-            {/* 본문 */}
             <div className="modal-content">
               {/* 달력 */}
               <Calendar
-                year={2025}
-                month={8}
-                today={26}
-                pointDays={[3, 12, 19, 26]}
+                year={new Date().getFullYear()}
+                month={new Date().getMonth() + 1}
+                today={new Date().getDate()}
+                pointDays={pointDays}
               />
 
               {/* 추천 매장 */}
               <div className="recommend-detail">
-                <h3>{username}님<br />오늘은 이곳 어때요?</h3>
+                <h3>{shopDetail.nickname}님<br />오늘은 이곳 어때요?</h3>
                 <div className="store-card">
-                  <img src={Cafe} alt="선잠" />
+                  <img src={shopDetail.shopImage} alt={shopDetail.shopName} />
                   <div className="info">
-                    <h4>선잠 <span className="status">영업중</span></h4>
-                    <p className="desc">숨겨진 공간의 아늑한 카페</p>
+                    <h4>
+                      {shopDetail.shopName}{" "}
+                      <span className="status">
+                        {shopDetail.openStatus ? "영업중" : "영업종료"}
+                      </span>
+                    </h4>
+                    <p className="desc">{shopDetail.recommendInfo}</p>
                   </div>
                 </div>
               </div>
 
-              {/* 매장 혜택 (초록색) */}
-              <div className="coupon-tip">
-                🎁 3회 방문 시 아메리카노 쿠폰 지급
-              </div>
+              {/* 혜택 */}
+              {shopDetail.visitCount && shopDetail.couponType && (
+                <div className="coupon-tip">
+                  🎁 {shopDetail.visitCount}회 방문 시 {shopDetail.couponType} 쿠폰 지급
+                </div>
+              )}
 
-              {/* 매장 관련 정보 (회색) */}
+              {/* 추천 코멘트 */}
               <div className="reasons">
-                <div className="reason">☕ 비 오는 날엔 따뜻한 실내 공간이 인기!<br />
-                  &nbsp;오늘 같은 날씨에 조용한 분위기의 공간이 많이 찾는 곳이에요.</div>
-                <div className="reason">📍현재 위치에서 도보 3분 거리!<br />
-                  &nbsp;이동 거리도 짧고 지금 바로 방문 가능해요.</div>
-                <div className="reason">🧾 최근 2주간, 유사한 시간대에 3명이 다녀갔어요!<br />
-                  &nbsp;다른 사용자들도 자주 찾는 루틴 장소예요.</div>
+                {shopDetail.comments.map((c, i) => (
+                  <div className="reason" key={i}>{c.comment}</div>
+                ))}
               </div>
             </div>
 
-            {/* 하단 버튼 */}
             <button className="map-btn">지도 보기</button>
           </div>
         </div>
       )}
-
     </div>
   )
 }
 
 export default Main
+

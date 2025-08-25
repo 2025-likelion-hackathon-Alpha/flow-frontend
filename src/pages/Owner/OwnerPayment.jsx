@@ -42,7 +42,7 @@ export default function OwnerPayment() {
 
         try {
             const res = await fetch(
-                `http://54.180.244.106:8080/api/shopMypage/paymentCheck/${selected.paymentCheckId}/accept`,
+                `https://api.flowalpha.store/api/shopMypage/paymentCheck/${selected.paymentCheckId}/accept`,
                 {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },

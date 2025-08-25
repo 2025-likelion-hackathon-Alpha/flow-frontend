@@ -22,7 +22,7 @@ export default function FundingDetail() {
     const fetchFundingDetail = async () => {
       try {
         const res = await fetch(
-          `http://54.180.244.106:8080/api/funding/detail?fundingId=${id}`,
+          `https://api.flowalpha.store/api/funding/detail?fundingId=${id}`,
           { method: "GET", credentials: "include" }
         );
         if (!res.ok) throw new Error("펀딩 상세 불러오기 실패");
@@ -52,7 +52,7 @@ export default function FundingDetail() {
   const openFundingModal = async () => {
     try {
       const res = await fetch(
-        `http://54.180.244.106:8080/api/funding/seeds?fundingId=${funding.fundingId}`,
+        `https://api.flowalpha.store/api/funding/seeds?fundingId=${funding.fundingId}`,
         { method: "GET", credentials: "include" }
       );
       if (!res.ok) throw new Error("보유 씨앗 불러오기 실패");
@@ -73,7 +73,7 @@ export default function FundingDetail() {
     }
 
     try {
-      const res = await fetch("http://54.180.244.106:8080/api/funding/giveSeeds", {
+      const res = await fetch("https://api.flowalpha.store/api/funding/giveSeeds", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",

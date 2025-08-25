@@ -4,7 +4,6 @@ import Header from "../../components/Header/Header";
 import Logo from "../../assets/flow_logo.svg";
 import { useNavigate } from "react-router-dom";
 
-
 export default function OwnerHome() {
     const [shopData, setShopData] = useState(null);
     const navigate = useNavigate();
@@ -12,14 +11,23 @@ export default function OwnerHome() {
     useEffect(() => {
         const fetchShopData = async () => {
             try {
+                // 로그인 시 저장한 shopInfoId 불러오기
+                const shopInfoId = localStorage.getItem("shopInfoId");
+                if (!shopInfoId) {
+                    console.error("❌ shopInfoId 없음. 로그인 후 접근해주세요.");
+                    return;
+                }
+
                 const res = await fetch(
-                    `http://54.180.244.106:8080/api/shopMypage/summaryShopInfo?shopInfoId=${shopInfoId}`,
+                    `https://api.flowalpha.store/api/shopMypage/summaryShopInfo?shopInfoId=${shopInfoId}`,
                     {
                         method: "GET",
-                        credentials: "include", 
+                        credentials: "include",
                     }
                 );
+
                 if (!res.ok) throw new Error("매장 요약 불러오기 실패");
+
                 const data = await res.json();
                 setShopData(data);
             } catch (err) {
@@ -37,7 +45,7 @@ export default function OwnerHome() {
             <Header bgColor="#62E59B" />
             <div className="owner-hero">
                 <div className="greeting">
-                    <span className="nick">선잠</span> 님이 만든 변화,
+                    <span className="nick">{shopData.shopName || "매장명"}</span> 님이 만든 변화,
                     <img src={Logo} alt="Flow 로고" className="brand-logo" />
                 </div>
             </div>
@@ -46,7 +54,6 @@ export default function OwnerHome() {
                 <div className="owner-content">
                     <div className="cards-wrapper">
                         <section className="owner-cards">
-                            {/* 이번 달 결제 금액 */}
                             <div className="card">
                                 <p className="title">이번 달 Flow 고객 결제 금액</p>
                                 <p className="value right">
@@ -55,7 +62,6 @@ export default function OwnerHome() {
                                 </p>
                             </div>
 
-                            {/* 파트너십 비용 */}
                             <div className="card">
                                 <p className="title">Flow와 함께하는 성장 파트너십 비용</p>
                                 <p className="value right">
@@ -63,20 +69,12 @@ export default function OwnerHome() {
                                     <span className="unit">원</span>
                                 </p>
                             </div>
-
                         </section>
                     </div>
 
                     <div className="actions-box">
                         <section className="owner-actions">
-                            {/* 매장 사용자 회원가입 페이지로 연결 예정 */}
-                            {/* <button className="btn secondary" onClick={() => navigate("/signup")}>
-                        매장 정보 변경
-                    </button> */}
-                            <button className="btn secondary">
-                                매장 정보 변경 (수정해야됨)
-                            </button>
-
+                            <button className="btn secondary">매장 정보 변경 (수정 예정)</button>
                             <button
                                 className="btn secondary"
                                 onClick={() =>
@@ -93,9 +91,12 @@ export default function OwnerHome() {
                             >
                                 쿠폰 등록하기
                             </button>
-                            <button className="btn text danger"
+                            <button
+                                className="btn text danger"
                                 onClick={() => navigate("/")}
-                            >로그아웃</button>
+                            >
+                                로그아웃
+                            </button>
                         </section>
                     </div>
                 </div>

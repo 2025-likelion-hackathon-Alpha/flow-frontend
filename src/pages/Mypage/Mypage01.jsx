@@ -10,7 +10,7 @@ export default function Mypage01() {
 
   useEffect(() => {
     const userId = sessionStorage.getItem("userId")
-    fetch(`http://54.180.244.106:8080/api/user/${userId}/userMypage`, {
+    fetch(`https://api.flowalpha.store/api/user/${userId}/userMypage`, {
       method: "GET",
       credentials: "include",
     })
@@ -39,10 +39,10 @@ export default function Mypage01() {
         <div className="mypage-content">
           <div className="cards-wrapper">
             <section className="mypage-cards">
-              <div className="card"><div className="title">지역을 위한 소비</div><div className="value"><strong>{profile.localConsumption}</strong><span>번</span></div></div>
-              <div className="card"><div className="title">함께한 펀딩</div><div className="value"><strong>{profile.funding}</strong><span>번</span></div></div>
-              <div className="card"><div className="title">심은 씨앗</div><div className="value"><strong>{profile.seeds.toLocaleString()}</strong><span>씨앗</span></div></div>
-              <div className="card"><div className="title">포인트</div><div className="value"><strong>{profile.point.toLocaleString()}</strong><span>P</span></div></div>
+              <div className="card"><div className="card-title">지역을 위한 소비</div><div className="value"><strong>{profile.localConsumption}</strong><span>번</span></div></div>
+              <div className="card"><div className="card-title">함께한 펀딩</div><div className="value"><strong>{profile.funding}</strong><span>번</span></div></div>
+              <div className="card"><div className="card-title">심은 씨앗</div><div className="value"><strong>{profile.seeds.toLocaleString()}</strong><span>씨앗</span></div></div>
+              <div className="card"><div className="card-title">포인트</div><div className="value"><strong>{profile.point.toLocaleString()}</strong><span>P</span></div></div>
             </section>
           </div>
 

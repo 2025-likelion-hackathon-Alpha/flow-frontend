@@ -13,7 +13,7 @@ export default function FundingHistory() {
     useEffect(() => {
         const fetchMyFunding = async () => {
             try {
-                const res = await fetch("http://54.180.244.106:8080/api/funding/myfunding", {
+                const res = await fetch("https://api.flowalpha.store/api/funding/myfunding", {
                     method: "GET",
                     credentials: "include", // 세션/쿠키 필요 시
                 });

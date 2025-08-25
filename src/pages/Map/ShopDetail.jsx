@@ -12,7 +12,7 @@ import MapImg from "../../assets/map_img.png"; // ✅ 고정 이미지
 const shopDetails = [
     {
         shop: {
-            shopInfoId: 1,
+            shopInfoId: -1,
             name: "놀랍",
             location: "서울특별시 성북구 동소문로15길 6 (동소문동6가, 미래하이츠) 2층",
             explanation: "감성적인 분위기의 디저트 카페",
@@ -27,7 +27,7 @@ const shopDetails = [
     },
     {
         shop: {
-            shopInfoId: 2,
+            shopInfoId: -2,
             name: "꿈의숲약국",
             location: "서울특별시 성북구 돌곶이로 183 (장위동) 1층 꿈의숲약국",
             explanation: "지역 주민을 위한 친절한 약국",
@@ -42,7 +42,7 @@ const shopDetails = [
     },
     {
         shop: {
-            shopInfoId: 3,
+            shopInfoId: -3,
             name: "가마치통닭 정릉역점",
             location: "서울특별시 성북구 정릉로 272 (정릉동)",
             explanation: "바삭한 후라이드 치킨 전문점",
@@ -57,7 +57,7 @@ const shopDetails = [
     },
     {
         shop: {
-            shopInfoId: 4,
+            shopInfoId: -4,
             name: "월곡튼튼정형외과의원",
             location: "서울특별시 성북구 화랑로 102 (하월곡동, 상상) 2층",
             explanation: "지역 주민 건강을 책임지는 정형외과",
@@ -68,7 +68,7 @@ const shopDetails = [
     },
     {
         shop: {
-            shopInfoId: 5,
+            shopInfoId: -5,
             name: "4번출구 텐텐하오",
             location: "서울특별시 성북구 숭인로 70-2 (길음동)",
             explanation: "중국 가정식을 즐길 수 있는 맛집",
