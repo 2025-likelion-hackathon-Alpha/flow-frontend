@@ -40,7 +40,8 @@ function AppInner() {
     "/", "/select","/signup/general", "/login", "/signup",
     "/funding-history", "/coupon",
     "/owner", "/owner/home", "/owner/payment", "/owner/coupon","/Nicetomeetyou", "/tutorial1"
-    ,"/tutorial2", "/tutorial3", "/success", "/rewardShop"
+    ,"/tutorial2", "/tutorial3", "/success", "/rewardShop", "/signup/store", "/information",
+    '/select', 'login'
   ];
 
   // ✅ 동적 라우트(/shop/:id)도 포함되도록 처리
