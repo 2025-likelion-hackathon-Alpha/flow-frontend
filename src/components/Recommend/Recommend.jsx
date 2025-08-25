@@ -1,12 +1,11 @@
 import React from 'react'
 import './Recommend.scss'
-import Cafe from '../../assets/Cafe.png' // 예시 이미지
 
 const Recommend = ({
-  user = "아기사자",
-  storeName = "선잠",
-  status = "영업중",
-  description = "숨겨진 공간의 아늑한 카페",
+  user,
+  storeName,
+  status,
+  description,
   image,
   onOpen // 모달 열기
 }) => {
@@ -28,7 +27,7 @@ const Recommend = ({
       {/* 본문 */}
       <div className="recommend-body">
         <div className="image">
-          <img src={image || Cafe} alt={storeName} />
+          <img src={image} alt={storeName} />
         </div>
         <div className="info">
           <div className="store">

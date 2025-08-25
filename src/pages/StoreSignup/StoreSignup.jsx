@@ -31,9 +31,10 @@ const StoreSignup = () => {
           password,
           role: "SHOP",
           location: storeAddress,
-          latitude: null,   // 주소 좌표 연동 안 했으면 null
+          latitude: null,
           longitude: null,
-          category: "ECT"   // 기본값, 나중에 선택 UI 붙이면 교체
+          category: "ECT",
+          googlePlaceId: null
         }),
       })
       if (!res.ok) throw new Error('store signup failed')

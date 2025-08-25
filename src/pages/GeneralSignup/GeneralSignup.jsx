@@ -33,7 +33,8 @@ const GeneralSignup = () => {
           location: null,
           latitude: null,
           longitude: null,
-          category: null
+          category: null,
+          googlePlaceId: null 
         }),
       })
       if (!res.ok) throw new Error('signup failed')
