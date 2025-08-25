@@ -20,17 +20,15 @@ export default function FundingPage() {
             try {
                 const res = await fetch("https://api.flowalpha.store/api/funding", {
                     method: "GET",
-                    credentials: "include", // 로그인 세션/쿠키 필요 시
+                    credentials: "include", // 세션 기반이면 필요
                 });
 
-                const data = await res.json().catch(() => null);
+                const data = await res.json();
 
                 console.log("펀딩 API 상태:", res.status);
                 console.log("펀딩 API 응답:", data);
 
-                if (!res.ok || !data) {
-                    throw new Error(`펀딩 데이터 불러오기 실패 (status: ${res.status})`);
-                }
+                if (!res.ok) throw new Error(`펀딩 데이터 불러오기 실패 (status: ${res.status})`);
 
                 setNickname(data.nickname || "");
                 setFundingList(data.fundingList || []);

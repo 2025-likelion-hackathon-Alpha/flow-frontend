@@ -100,8 +100,22 @@ const GeneralSignup = () => {
           </div>
         </div>
 
-        <div className="next">닉네임과 비밀번호는 마이페이지에서 수정할 수 있어요.</div>
-        <Footer label={loading ? '처리 중...' : '다음'} onClick={handleSubmit} disabled={loading} />
+        <div className="next">
+          닉네임과 비밀번호는 마이페이지에서 수정할 수 있어요.
+        </div>
+
+        {/* ✅ 로그인 화면 이동 버튼 */}
+        <div className="goto-login">
+          <button onClick={() => navigate('/login')} className="btn secondary">
+            로그인 화면으로 가기
+          </button>
+        </div>
+
+        <Footer 
+          label={loading ? '처리 중...' : '다음'} 
+          onClick={handleSubmit} 
+          disabled={loading} 
+        />
       </div>
     </>
   )
