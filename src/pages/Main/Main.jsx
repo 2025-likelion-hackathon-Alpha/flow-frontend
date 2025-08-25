@@ -126,7 +126,7 @@ const Main = () => {
               </div>
             </div>
 
-            <button className="map-btn">지도 보기</button>
+            <button className="map-btn">정보 보기</button>
           </div>
         </div>
       )}
