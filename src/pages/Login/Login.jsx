@@ -39,7 +39,27 @@ const Login = () => {
       // userId 저장
       sessionStorage.setItem('userId', data.userId)
 
+      // 성공 응답 처리
       alert('로그인 성공!')
+      console.log('로그인 성공 전체 데이터:', data)   // 🔍 응답 구조 확인
+
+      // ✅ 토큰 확인
+      if (data.tokens) {
+        console.log("토큰 값:", data.tokens)
+
+        // 문자열인 경우
+        if (typeof data.tokens === "string") {
+          localStorage.setItem("accessToken", data.tokens)
+        }
+
+        // 객체 안에 accessToken이 있는 경우
+        else if (data.tokens.accessToken) {
+          localStorage.setItem("accessToken", data.tokens.accessToken)
+        }
+      } else {
+        console.warn("⚠️ 응답에 tokens 값이 없음!")
+      }
+
 
       if (data.role === 'GENERAL') {
         navigate('/Nicetomeetyou')
