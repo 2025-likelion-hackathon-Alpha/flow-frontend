@@ -19,10 +19,14 @@ const Main = () => {
       try {
         const res = await fetch("https://api.flowalpha.store/api/home", {
           method: "GET",
-          credentials: "include",  // 세션/쿠키 필요시
+          credentials: "include", // 세션/쿠키 포함
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`,  // 헤더 안에 넣어야 함
+          },
         });
 
-        const text = await res.text();   // 먼저 문자열로 받아봄
+        const text = await res.text();   // 문자열 먼저 받아서 확인
         console.log("홈 API 상태:", res.status, text);
 
         if (!res.ok) throw new Error("홈 데이터 실패");
@@ -39,6 +43,7 @@ const Main = () => {
     };
     fetchHome();
   }, []);
+
 
 
 
