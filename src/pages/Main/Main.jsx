@@ -17,21 +17,26 @@ const Main = () => {
   useEffect(() => {
     const fetchHome = async () => {
       try {
+        const token = localStorage.getItem("accessToken"); // 🔹 토큰 가져오기
+        if (!token) {
+          throw new Error("로그인 토큰 없음");
+        }
+
         const res = await fetch("https://api.flowalpha.store/api/home", {
           method: "GET",
-          credentials: "include", // 세션/쿠키 포함
+          credentials: "include",
           headers: {
             "Content-Type": "application/json",
-            "Authorization": `Bearer ${token}`,  // 헤더 안에 넣어야 함
+            "Authorization": `Bearer ${token}`,
           },
         });
 
-        const text = await res.text();   // 문자열 먼저 받아서 확인
+        const text = await res.text();
         console.log("홈 API 상태:", res.status, text);
 
         if (!res.ok) throw new Error("홈 데이터 실패");
 
-        const data = JSON.parse(text);   // JSON 파싱
+        const data = JSON.parse(text);
         setHomeData(data);
 
       } catch (e) {
@@ -41,8 +46,10 @@ const Main = () => {
         setLoading(false);
       }
     };
+
     fetchHome();
   }, []);
+
 
 
 
