@@ -9,7 +9,7 @@ import Funding from './pages/Funding/Funding01';
 import FundingDetail from './pages/Funding/FundingDetail';
 import FundingHistory from './pages/Funding/FundingHistory';
 import Mypage01 from './pages/Mypage/Mypage01';
-import Couponpage from './pages/Mypage/Couponpage';
+import Couponpage from './pages/Mypage/CouponPage';
 import ShopDetail from './pages/Map/ShopDetail';
 import GeneralSignup from './pages/GeneralSignup/GeneralSignup'
 import Tutorial1 from './pages/Tutorial1/Tutorial1'
