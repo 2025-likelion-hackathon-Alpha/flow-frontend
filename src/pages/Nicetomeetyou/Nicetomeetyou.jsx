@@ -4,6 +4,9 @@ import './Nicetomeetyou.scss'
 
 const Nicetomeetyou = ({ username }) => {
     const navigate = useNavigate();
+    const location = useLocation();
+
+    const { username } = location.state || { username: "사용자" };
 
     const handleNext = () => {
         navigate('/tutorial1');
