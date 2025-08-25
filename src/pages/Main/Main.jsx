@@ -17,25 +17,42 @@ const Main = () => {
   useEffect(() => {
     const fetchHome = async () => {
       try {
-        const res = await fetch("https://api.flowalpha.store/api/home")
-        if (!res.ok) throw new Error("홈 데이터 실패")
-        const data = await res.json()
-        setHomeData(data)
+        const res = await fetch("https://api.flowalpha.store/api/home", {
+          method: "GET",
+          credentials: "include", // ✅ 세션/쿠키 포함
+        });
 
-        // 추천 매장 상세 데이터 호출
-        const detailRes = await fetch(`https://api.flowalpha.store/api/home/recommendShop?recommendShopId=${data.recommendShopId}`)
-        if (!detailRes.ok) throw new Error("추천 매장 실패")
-        const detailData = await detailRes.json()
-        setShopDetail(detailData)
+        const text = await res.text(); // 응답을 문자열로 먼저 받기
+        console.log("홈 API 상태:", res.status, text);
+
+        if (!res.ok) throw new Error("홈 데이터 실패");
+
+        const data = JSON.parse(text); // JSON으로 파싱
+        setHomeData(data);
+
+        // ✅ 추천 매장 상세 데이터 호출
+        const detailRes = await fetch(
+          `https://api.flowalpha.store/api/home/recommendShop?recommendShopId=${data.recommendShopId}`,
+          { credentials: "include" }
+        );
+
+        const detailText = await detailRes.text();
+        console.log("추천 매장 API 상태:", detailRes.status, detailText);
+
+        if (!detailRes.ok) throw new Error("추천 매장 실패");
+
+        const detailData = JSON.parse(detailText);
+        setShopDetail(detailData);
       } catch (e) {
-        console.error(e)
-        alert("홈 데이터를 불러오지 못했어요")
+        console.error(e);
+        alert("홈 데이터를 불러오지 못했어요");
       } finally {
-        setLoading(false)
+        setLoading(false);
       }
-    }
-    fetchHome()
-  }, [])
+    };
+    fetchHome();
+  }, []);
+
 
   if (loading) return <p>홈 화면 불러오는 중...</p>
   if (!homeData || !shopDetail) return <p>데이터 없음</p>
