@@ -30,10 +30,11 @@ const GeneralSignup = () => {
           email: userId,
           password,
           role: "GENERAL",
-          location: null,
-          latitude: null,
-          longitude: null,
-          category: null
+          location: "",
+          latitude: 0,
+          longitude: 0,
+          category: "ECT",
+          googlePlaceId: ""
         }),
       })
       if (!res.ok) throw new Error('signup failed')
