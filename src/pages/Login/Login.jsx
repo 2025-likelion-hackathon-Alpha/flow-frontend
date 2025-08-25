@@ -33,15 +33,14 @@ const Login = () => {
         return alert(data.message || '로그인에 실패했어요.')
       }
 
-      // ✅ 토큰 저장 (localStorage)
-      localStorage.setItem("token", data.accessToken)
+      // ✅ 토큰 저장 (tokens는 문자열임)
+      localStorage.setItem("accessToken", data.tokens)
 
-      // userId도 필요하면 저장
+      // userId 저장
       sessionStorage.setItem('userId', data.userId)
 
       alert('로그인 성공!')
 
-      // role 값에 따라 라우팅
       if (data.role === 'GENERAL') {
         navigate('/Nicetomeetyou')
       } else if (data.role === 'SHOP') {
@@ -59,7 +58,7 @@ const Login = () => {
 
   return (
     <>
-      <Header title='Flow'/>
+      <Header title='Flow' />
       <div className="Login_wrap">
         <div className="logo">
           <img src={Logo} alt="" />

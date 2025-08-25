@@ -44,7 +44,6 @@ const Main = () => {
   if (!homeData || !shopDetail) return <p>데이터 없음</p>
 
   const pointDays = shopDetail.checkDate.map(d => new Date(d).getDate())
-
   return (
     <div className="Main_wrap">
       <Header title="Flow" />
