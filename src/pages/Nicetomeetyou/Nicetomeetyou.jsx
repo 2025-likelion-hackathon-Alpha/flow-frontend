@@ -1,9 +1,11 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import './Nicetomeetyou.scss'
 
-const Nicetomeetyou = ({ username }) => {
+const Nicetomeetyou = () => {
     const navigate = useNavigate();
+    const location = useLocation();
+    const { username } = location.state || { username: "사용자" }; // 기본값
 
     const handleNext = () => {
         navigate('/tutorial1');
@@ -15,7 +17,6 @@ const Nicetomeetyou = ({ username }) => {
 
     return (
         <div className="Welcome_wrap">
-            {/* 배경 레이어 추가 */}
             <div className="bg-layer"></div>
 
             <div className="welcome">
