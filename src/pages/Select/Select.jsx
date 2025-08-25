@@ -18,7 +18,7 @@ export default function Select() {
   const handleSelect = (type) => {
     setSelected(type) // 색 변경
     setTimeout(() => {
-      navigate(type === 'general' ? 'https://api.flowalpha.store/api/signup/general' : '/signup/store')
+      navigate(type === 'general' ? 'api/signup/general' : '/signup/store')
     }, 500) // 0.5초 뒤 이동
   }
 
