@@ -1,4 +1,3 @@
-// pages/Mypage/CouponPage.jsx
 import React, { useState, useEffect } from "react";
 import "./Coupon.scss";
 import Previous from "../../assets/previous_black.svg";

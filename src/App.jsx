@@ -9,7 +9,7 @@ import Funding from './pages/Funding/Funding01';
 import FundingDetail from './pages/Funding/FundingDetail';
 import FundingHistory from './pages/Funding/FundingHistory';
 import Mypage01 from './pages/Mypage/Mypage01';
-import CouponPage from './pages/Mypage/CouponPage';
+import Couponpage from './pages/Mypage/Couponpage';
 import ShopDetail from './pages/Map/ShopDetail';
 import GeneralSignup from './pages/GeneralSignup/GeneralSignup'
 import Tutorial1 from './pages/Tutorial1/Tutorial1'
@@ -40,7 +40,7 @@ function AppInner() {
     "/", "/select","/signup/general", "/login", "/signup",
     "/funding-history", "/coupon",
     "/owner", "/owner/home", "/owner/payment", "/owner/coupon","/Nicetomeetyou", "/tutorial1"
-    ,"/tutorial2", "/tutorial3", "/success"
+    ,"/tutorial2", "/tutorial3", "/success", "/rewardShop"
   ];
 
   // ✅ 동적 라우트(/shop/:id)도 포함되도록 처리
@@ -58,7 +58,7 @@ function AppInner() {
         <Route path="/funding/:id" element={<FundingDetail />} />
         <Route path="/funding-history" element={<FundingHistory />} />
         <Route path="/mypage" element={<Mypage01 />} />
-        <Route path="/coupon" element={<CouponPage />} />
+        <Route path="/coupon" element={<Couponpage />} />
         <Route path="/shop/:shopId" element={<ShopDetail />} />
         <Route path="/signup/general" element={<GeneralSignup />} />
         <Route path="/Nicetomeetyou" element={<Nicetomeetyou />} />
