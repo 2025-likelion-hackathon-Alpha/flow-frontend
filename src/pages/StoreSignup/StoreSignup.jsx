@@ -6,13 +6,43 @@ import Logo from '../../assets/Logo.svg'
 import Back from '../../assets/Back.svg'
 import Footer from '../../components/FooterBtn/FooterBtn'
 
+const GOOGLE_API_KEY = "AIzaSyAO_GNqascex_uhT89R-YQYFIeddCN3I-I"  // ← 구글 API 키 넣기!
+
 const StoreSignup = () => {
   const navigate = useNavigate()
   const [storeName, setStoreName] = useState('')
   const [storeAddress, setStoreAddress] = useState('')
+  const [placeId, setPlaceId] = useState(null)  // ✅ 구글 place_id 상태 추가
   const [userId, setUserId] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
+
+  // ✅ 주소 → 구글 Place ID 변환 함수
+  const fetchPlaceIdFromAddress = async (address) => {
+    try {
+      // 1. 주소 → 위도/경도 변환
+      const geoRes = await fetch(
+        `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(address)}&key=${GOOGLE_API_KEY}`
+      )
+      const geoData = await geoRes.json()
+      if (!geoData.results.length) throw new Error("주소 변환 실패")
+
+      const { lat, lng } = geoData.results[0].geometry.location
+
+      // 2. 위도/경도 → Place ID 변환
+      const placeRes = await fetch(
+        `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${GOOGLE_API_KEY}`
+      )
+      const placeData = await placeRes.json()
+      if (!placeData.results.length) throw new Error("Place ID 변환 실패")
+
+      const pid = placeData.results[0].place_id
+      setPlaceId(pid)
+      console.log("✅ 변환된 Google Place ID:", pid)
+    } catch (err) {
+      console.error("구글 Place 변환 에러:", err)
+    }
+  }
 
   const handleSubmit = async () => {
     if (!storeName.trim()) return alert('매장 이름을 입력해 주세요.')
@@ -31,9 +61,10 @@ const StoreSignup = () => {
           password,
           role: "SHOP",
           location: storeAddress,
-          latitude: null,   // 주소 좌표 연동 안 했으면 null
+          googlePlaceId: placeId,  // ✅ 구글 Place ID 함께 전송
+          latitude: null,
           longitude: null,
-          category: "ECT"   // 기본값, 나중에 선택 UI 붙이면 교체
+          category: "ECT"
         }),
       })
       if (!res.ok) throw new Error('store signup failed')
@@ -87,6 +118,7 @@ const StoreSignup = () => {
                         ? data.roadAddress
                         : data.jibunAddress
                       setStoreAddress(addr)
+                      fetchPlaceIdFromAddress(addr)  // ✅ 주소 선택 시 자동 변환
                     }
                   }).open()
                 }}
