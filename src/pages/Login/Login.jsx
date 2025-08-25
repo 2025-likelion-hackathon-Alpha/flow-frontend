@@ -27,28 +27,27 @@ const Login = () => {
       })
 
       const data = await res.json()
-      console.log('응답 상태:', res.status)
-      console.log('응답 데이터:', data)
+      console.log('응답 상태:', res.status, data)
 
       if (!res.ok) {
-        // 실패 응답 처리
         return alert(data.message || '로그인에 실패했어요.')
       }
 
-      // 성공 응답 처리
-      alert('로그인 성공!')
-      console.log('로그인 성공:', data)
+      // ✅ 토큰 저장 (localStorage)
+      localStorage.setItem("token", data.accessToken)
 
-      // userId 저장
+      // userId도 필요하면 저장
       sessionStorage.setItem('userId', data.userId)
+
+      alert('로그인 성공!')
 
       // role 값에 따라 라우팅
       if (data.role === 'GENERAL') {
-        navigate('/Nicetomeetyou')       // 일반 사용자 홈
+        navigate('/Nicetomeetyou')
       } else if (data.role === 'SHOP') {
-        navigate('/store')      // 매장 사용자 홈
+        navigate('/store')
       } else {
-        navigate('/')           // 기본값
+        navigate('/')
       }
     } catch (err) {
       console.error(err)
@@ -77,7 +76,6 @@ const Login = () => {
                 value={userId}
                 onChange={(e) => setUserId(e.target.value)}
                 placeholder="email"
-                maxLength={30}
               />
             </div>
           </div>
@@ -91,7 +89,6 @@ const Login = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="password"
-                maxLength={20}
               />
             </div>
           </div>
