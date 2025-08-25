@@ -38,7 +38,7 @@ const GeneralSignup = () => {
         }),
       })
       if (!res.ok) throw new Error('signup failed')
-      navigate('/login')
+      navigate('/nicetomeetyou', { state: { username: nickname } });
     } catch (e) {
       alert('회원가입 실패. 잠시 후 다시 시도해 주세요.')
     } finally {
@@ -112,10 +112,10 @@ const GeneralSignup = () => {
           </button>
         </div>
 
-        <Footer 
-          label={loading ? '처리 중...' : '다음'} 
-          onClick={handleSubmit} 
-          disabled={loading} 
+        <Footer
+          label={loading ? '처리 중...' : '다음'}
+          onClick={handleSubmit}
+          disabled={loading}
         />
       </div>
     </>
